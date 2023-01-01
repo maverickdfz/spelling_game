@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccv7strpbey65"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ct643"]
+[ext_resource type="Texture2D" uid="uid://d3v8uyt8cvwq3" path="res://icon.svg" id="2_6jdli"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ct643")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -115.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Enter a guess"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 32.0
+offset_right = 20.0
+offset_bottom = 72.0
+grow_horizontal = 2
+texture_normal = ExtResource("2_6jdli")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
