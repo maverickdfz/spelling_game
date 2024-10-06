@@ -9,6 +9,17 @@ var last_answer: String = ""
 #var _finished: Callable
 var well_done_finished: Callable
 @onready var colorRect: ColorRect = $ColorRect
+var words_dictionary = {
+	"Kira1": {"use": "use_kira1_words", "file": "res://words/Kira_Oakwood1.txt"},
+	"Kira2": {"use": "use_kira2_words", "file": "res://words/Kira_2.txt"},
+	"Kira3": {"use": "use_kira3_words", "file": "res://words/Kira_3.txt"},
+	"Xander1": {"use": "use_xander1_words", "file": "res://words/Xander_1.txt"},
+	"Xander2": {"use": "use_xander2_words", "file": "res://words/Xander_2.txt"},
+	"Xander3": {"use": "use_xander3_words", "file": "res://words/Xander_3.txt"},
+	"Xander4": {"use": "use_xander4_words", "file": "res://words/Xander_4.txt"},
+	"XanderMonth": {"use": "use_xander_weekday_words", "file": "res://words/Xander_Weekdays.txt"},
+	"XanderWeekday": {"use": "use_xander_month_words", "file": "res://words/Xander_Months.txt"},
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,33 +71,15 @@ func _on_line_edit_text_submitted(new_text):
 
 func generate_answer():
 	var answers = []
-	if GlobalSettings.use_kira1_words:
-		var k1 = Words.load_file("res://words/Kira_Oakwood1.txt")
-		answers += k1
-	if GlobalSettings.use_kira2_words:
-		var k2 = Words.load_file("res://words/Kira_2.txt")
-		answers += k2
-	if GlobalSettings.use_kira3_words:
-		var k3 = Words.load_file("res://words/Kira_3.txt")
-		answers += k3
-	if GlobalSettings.use_xander1_words:
-		var x1 = Words.load_file("res://words/Xander_1.txt")
-		answers += x1
-	if GlobalSettings.use_xander2_words:
-		var x2 = Words.load_file("res://words/Xander_2.txt")
-		answers += x2
-	if GlobalSettings.use_xander3_words:
-		var x3 = Words.load_file("res://words/Xander_3.txt")
-		answers += x3
-	if GlobalSettings.use_xander4_words:
-		var x4 = Words.load_file("res://words/Xander_4.txt")
-		answers += x4
-	if GlobalSettings.use_xander_weekday_words:
-		var x_week = Words.load_file("res://words/Xander_Weekdays.txt")
-		answers += x_week
-	if GlobalSettings.use_xander_month_words:
-		var x_month = Words.load_file("res://words/Xander_Months.txt")
-		answers += x_month
+	for wordset in words_dictionary:
+		var should_use = false
+		var use = words_dictionary[wordset].use
+		if use in GlobalSettings:
+			should_use = GlobalSettings[use]
+		if should_use:
+			var filepath = words_dictionary[wordset].file
+			var words = Words.load_file(filepath)
+			answers += words
 	if answers.is_empty():
 		answers.append("toy")
 		answers.append("me")
