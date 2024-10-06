@@ -2,17 +2,19 @@ extends CanvasLayer
 
 @onready var show_words_checkbox = $VBoxContainer/GridContainer/CheckBox
 @onready var show_overaly_checkbox = $VBoxContainer/GridContainer/CheckBox2
-@onready var overlay_button = $VBoxContainer/GridContainer/ColorPickerButton
-@onready var overlay_label = $VBoxContainer/GridContainer/Label3
+@onready var overlay_button = $VBoxContainer/GridContainer/GridContainer/ColorPickerButton
+@onready var overlay_label = $VBoxContainer/GridContainer/GridContainer/Label
 @onready var use_kira1_checkbox = $VBoxContainer/GridContainer2/CheckBox
 @onready var use_kira2_checkbox = $VBoxContainer/GridContainer2/CheckBox2
 @onready var use_kira3_checkbox = $VBoxContainer/GridContainer2/CheckBox3
+@onready var use_kira4_checkbox = $VBoxContainer/GridContainer2/CheckBox4
 @onready var use_xander1_checkbox = $VBoxContainer/GridContainer3/CheckBox
 @onready var use_xander2_checkbox = $VBoxContainer/GridContainer3/CheckBox2
 @onready var use_xander3_checkbox = $VBoxContainer/GridContainer3/CheckBox3
 @onready var use_xander4_checkbox = $VBoxContainer/GridContainer3/CheckBox4
-@onready var use_xander_weekday_checkbox = $VBoxContainer/GridContainer3/CheckBox5
-@onready var use_xander_month_checkbox = $VBoxContainer/GridContainer3/CheckBox6
+@onready var use_xander5_checkbox = $VBoxContainer/GridContainer3/CheckBox5
+@onready var use_xander_weekday_checkbox = $VBoxContainer/GridContainer3/CheckBox_Weekday
+@onready var use_xander_month_checkbox = $VBoxContainer/GridContainer3/CheckBox_Month
 
 func _ready() -> void:
 	GlobalSettings.load_settings()
@@ -24,10 +26,12 @@ func _ready() -> void:
 	use_kira1_checkbox.button_pressed = GlobalSettings.use_kira1_words
 	use_kira2_checkbox.button_pressed = GlobalSettings.use_kira2_words
 	use_kira3_checkbox.button_pressed = GlobalSettings.use_kira3_words
+	use_kira4_checkbox.button_pressed = GlobalSettings.use_kira4_words
 	use_xander1_checkbox.button_pressed = GlobalSettings.use_xander1_words
 	use_xander2_checkbox.button_pressed = GlobalSettings.use_xander2_words
 	use_xander3_checkbox.button_pressed = GlobalSettings.use_xander3_words
 	use_xander4_checkbox.button_pressed = GlobalSettings.use_xander4_words
+	use_xander5_checkbox.button_pressed = GlobalSettings.use_xander5_words
 	use_xander_weekday_checkbox.button_pressed = GlobalSettings.use_xander_weekday_words
 	use_xander_month_checkbox.button_pressed = GlobalSettings.use_xander_month_words
 
@@ -57,6 +61,10 @@ func _on_kira3_check_box_3_toggled(toggled_on: bool) -> void:
 	GlobalSettings.use_kira3_words = toggled_on
 	GlobalSettings.save_settings()
 
+func _on_kira4_check_box_4_toggled(toggled_on: bool) -> void:
+	GlobalSettings.use_kira4_words = toggled_on
+	GlobalSettings.save_settings()
+
 func _on_xander1_check_box_toggled(toggled_on: bool) -> void:
 	GlobalSettings.use_xander1_words = toggled_on
 	GlobalSettings.save_settings()
@@ -71,6 +79,10 @@ func _on_xander3_check_box_3_toggled(toggled_on: bool) -> void:
 
 func _on_xander4_check_box_4_toggled(toggled_on: bool) -> void:
 	GlobalSettings.use_xander4_words = toggled_on
+	GlobalSettings.save_settings()
+
+func _on_xander5_check_box_5_toggled(toggled_on: bool) -> void:
+	GlobalSettings.use_xander5_words = toggled_on
 	GlobalSettings.save_settings()
 
 func _on_xander_weekday_check_box_5_toggled(toggled_on: bool) -> void:

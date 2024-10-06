@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var well_done = preload("res://scenes/well_done.tscn")
 var answer: String = ""
@@ -17,6 +17,7 @@ var words_dictionary = {
 	"Xander2": {"use": "use_xander2_words", "file": "res://words/Xander_2.txt"},
 	"Xander3": {"use": "use_xander3_words", "file": "res://words/Xander_3.txt"},
 	"Xander4": {"use": "use_xander4_words", "file": "res://words/Xander_4.txt"},
+	"Xander5": {"use": "use_xander5_words", "file": "res://words/Xander_5.txt"},
 	"XanderMonth": {"use": "use_xander_weekday_words", "file": "res://words/Xander_Weekdays.txt"},
 	"XanderWeekday": {"use": "use_xander_month_words", "file": "res://words/Xander_Months.txt"},
 }

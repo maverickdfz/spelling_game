@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Spelling Game"
+config/name="Spelling Quest"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
@@ -22,10 +22,11 @@ GlobalSettings="*res://scripts/global_settings.gd"
 
 [display]
 
-window/size/viewport_width=1120
-window/size/viewport_height=630
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/size/mode=3
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [rendering]
 

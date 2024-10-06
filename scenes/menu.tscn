@@ -1,101 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://er325hm1s5gy"]
+[gd_scene load_steps=6 format=3 uid="uid://er325hm1s5gy"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_a06mb"]
-[ext_resource type="Texture2D" uid="uid://cpybbodkeyxsq" path="res://spelling_logo.png" id="1_ogsyo"]
+[ext_resource type="Texture2D" uid="uid://c4m31y20tgkwk" path="res://textures/background.jpg" id="2_k5yjg"]
+[ext_resource type="Texture2D" uid="uid://bjxh1dp0n2irf" path="res://textures/Icon_Play.png" id="3_wo4ft"]
+[ext_resource type="Texture2D" uid="uid://je1odb4jecli" path="res://textures/Icon_Settings.png" id="4_3u353"]
+[ext_resource type="Texture2D" uid="uid://dl8apg0wtive" path="res://textures/Icon_X.png" id="5_nl3g3"]
 
-[node name="Node2D" type="Node2D"]
+[node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_a06mb")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1120.0
-offset_bottom = 630.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_k5yjg")
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -469.5
-offset_top = 40.0
-offset_right = 469.5
-offset_bottom = 396.0
-grow_horizontal = 2
-texture = ExtResource("1_ogsyo")
-
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 1
+[node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -170.0
-offset_right = 320.0
-offset_bottom = -106.0
+offset_left = -59.0
+offset_top = -370.0
+offset_right = 59.0
+offset_bottom = -189.0
 grow_horizontal = 2
 grow_vertical = 0
+texture_normal = ExtResource("3_wo4ft")
 
-[node name="Label" type="Label" parent="Control/Button"]
-layout_mode = 1
-anchors_preset = 15
+[node name="TextureButton2" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "Play"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = -134.0
+offset_top = 16.0
+offset_right = 105.0
+offset_bottom = 253.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_3u353")
 
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -320.0
-offset_top = -90.0
-offset_right = 320.0
-offset_bottom = -26.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Control/Button2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 40
-text = "Settings"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button3" type="Button" parent="Control"]
-layout_mode = 0
+[node name="TextureButton3" type="TextureButton" parent="."]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 76.0
-offset_bottom = 76.0
+offset_right = 224.0
+offset_bottom = 229.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_nl3g3")
 
-[node name="Label" type="Label" parent="Control/Button3"]
-layout_mode = 0
-offset_right = 60.0
-offset_bottom = 60.0
-theme_override_font_sizes/font_size = 40
-text = "X"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_button_3_pressed"]

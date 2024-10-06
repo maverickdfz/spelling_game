@@ -1,15 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccv7strpbey65"]
+[gd_scene load_steps=4 format=3 uid="uid://ccv7strpbey65"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_ct643"]
-[ext_resource type="Texture2D" uid="uid://kevbdkxkk72u" path="res://speaker.png" id="2_yap14"]
+[ext_resource type="Texture2D" uid="uid://bjk8267ugt1f4" path="res://textures/Icon_SoundOn.png" id="2_ku8q7"]
+[ext_resource type="Texture2D" uid="uid://cu81u10gx7qw" path="res://textures/Icon_ArrowLeft.png" id="3_2ovyg"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ct643")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -19,7 +14,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +23,6 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -42,51 +35,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -115.0
-offset_bottom = -84.0
+offset_top = 200.0
+offset_bottom = 231.0
 grow_horizontal = 2
-grow_vertical = 2
 placeholder_text = "Enter a guess"
 alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
 [node name="TextureButton" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -30.0
-offset_top = 30.0
-offset_right = 286.0
-offset_bottom = 615.0
+offset_left = -48.5
+offset_top = 40.0
+offset_right = 146.5
+offset_bottom = 246.0
 grow_horizontal = 2
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("2_yap14")
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_ku8q7")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
+[node name="TextureButton2" type="TextureButton" parent="."]
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 76.0
-offset_bottom = 76.0
-
-[node name="Label" type="Label" parent="Button"]
-layout_mode = 0
-offset_right = 60.0
-offset_bottom = 60.0
-theme_override_font_sizes/font_size = 40
-text = "X"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_right = 244.0
+offset_bottom = 215.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_2ovyg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,4 +76,4 @@ color = Color(0.392157, 0, 0.392157, 0.392157)
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_button_pressed"]

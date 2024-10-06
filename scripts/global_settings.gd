@@ -10,10 +10,12 @@ var overlay_color: Color = Color(1, 0.270588, 0, 0.4)
 var use_kira1_words: bool = true
 var use_kira2_words: bool = true
 var use_kira3_words: bool = true
+var use_kira4_words: bool = true
 var use_xander1_words: bool = true
 var use_xander2_words: bool = true
 var use_xander3_words: bool = true
 var use_xander4_words: bool = true
+var use_xander5_words: bool = true
 var use_xander_weekday_words: bool = true
 var use_xander_month_words: bool = true
 
@@ -36,6 +38,8 @@ func load_settings():
 				use_kira2_words = data.use_kira2_words
 			if "use_kira3_words" in data:
 				use_kira3_words = data.use_kira3_words
+			if "use_kira4_words" in data:
+				use_kira4_words = data.use_kira4_words
 			if "use_xander1_words" in data:
 				use_xander1_words = data.use_xander1_words
 			if "use_xander2_words" in data:
@@ -44,6 +48,8 @@ func load_settings():
 				use_xander3_words = data.use_xander3_words
 			if "use_xander4_words" in data:
 				use_xander4_words = data.use_xander4_words
+			if "use_xander5_words" in data:
+				use_xander5_words = data.use_xander5_words
 			if "use_xander_weekday_words" in data:
 				use_xander_weekday_words = data.use_xander_weekday_words
 			if "use_xander_month_words" in data:
@@ -58,10 +64,12 @@ func save_settings():
 		"use_kira1_words": use_kira1_words,
 		"use_kira2_words": use_kira2_words,
 		"use_kira3_words": use_kira3_words,
+		"use_kira4_words": use_kira4_words,
 		"use_xander1_words": use_xander1_words,
 		"use_xander2_words": use_xander2_words,
 		"use_xander3_words": use_xander3_words,
 		"use_xander4_words": use_xander4_words,
+		"use_xander5_words": use_xander5_words,
 		"use_xander_weekday_words": use_xander_weekday_words,
 		"use_xander_month_words": use_xander_month_words
 	}

@@ -1,6 +1,6 @@
-extends Node2D
+extends CanvasLayer
 
-@onready var quit_button: Button = $Control/Button3
+@onready var quit_button: TextureButton = $TextureButton3
 
 func _ready() -> void:
 	#print(OS.get_name())
