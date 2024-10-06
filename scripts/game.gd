@@ -1,14 +1,21 @@
 extends Control
 
 var well_done = preload("res://scenes/well_done.tscn")
-var answer: String
+var answer: String = ""
+var last_answer: String = ""
+@onready var wordLabel: Label = $Label
 @onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
 #var play_finished: Callable
 #var _finished: Callable
 var well_done_finished: Callable
+@onready var colorRect: ColorRect = $ColorRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	wordLabel.visible = false
+	GlobalSettings.load_settings()
+	colorRect.visible = GlobalSettings.show_overlay
+	colorRect.color = GlobalSettings.overlay_color
 	randomize()
 	generate_answer()
 
@@ -28,7 +35,8 @@ func _on_line_edit_text_submitted(new_text):
 		audioStreamPlayer.play(0.0)
 		# play well done animation
 		var well_done_instance = well_done.instantiate()
-		add_child(well_done_instance)
+		$Label.add_sibling(well_done_instance)
+		#add_child(well_done_instance)
 		# start timer to generate next word
 		well_done_finished = func ():
 			remove_child(well_done_instance)
@@ -51,22 +59,68 @@ func _on_line_edit_text_submitted(new_text):
 			$VBoxContainer.add_child(child)
 
 func generate_answer():
-	var answers = Words.get_words_by_category([
-		Words.CATEGORIES.colors,
-		Words.CATEGORIES.calendar,
-		Words.CATEGORIES.ly,
-		Words.CATEGORIES.ty,
-		Words.CATEGORIES.en,
-		Words.CATEGORIES.de,
-		Words.CATEGORIES.re,
-		Words.CATEGORIES.al
-	])
-	answer = answers[randi() % answers.size()]
+	var answers = []
+	if GlobalSettings.use_kira1_words:
+		var k1 = Words.load_file("res://words/Kira_Oakwood1.txt")
+		answers += k1
+	if GlobalSettings.use_kira2_words:
+		var k2 = Words.load_file("res://words/Kira_2.txt")
+		answers += k2
+	if GlobalSettings.use_kira3_words:
+		var k3 = Words.load_file("res://words/Kira_3.txt")
+		answers += k3
+	if GlobalSettings.use_xander1_words:
+		var x1 = Words.load_file("res://words/Xander_1.txt")
+		answers += x1
+	if GlobalSettings.use_xander2_words:
+		var x2 = Words.load_file("res://words/Xander_2.txt")
+		answers += x2
+	if GlobalSettings.use_xander3_words:
+		var x3 = Words.load_file("res://words/Xander_3.txt")
+		answers += x3
+	if GlobalSettings.use_xander4_words:
+		var x4 = Words.load_file("res://words/Xander_4.txt")
+		answers += x4
+	if GlobalSettings.use_xander_weekday_words:
+		var x_week = Words.load_file("res://words/Xander_Weekdays.txt")
+		answers += x_week
+	if GlobalSettings.use_xander_month_words:
+		var x_month = Words.load_file("res://words/Xander_Months.txt")
+		answers += x_month
+	if answers.is_empty():
+		answers.append("toy")
+		answers.append("me")
+		answers.append("mum")
+		answers.append("dad")
+		answers.append("boy")
+		answers.append("girl")
+		answers.append("brother")
+		answers.append("sister")
+	while answer == last_answer:
+		answer = answers[randi() % answers.size()]
+	#answer = "composition"
+	last_answer = answer
 	#print(answer)
+	wordLabel.text = answer
 	#var sound = load("res://sounds/"+answer+".ogg")
-	var sound = load("res://sounds/"+answer+".wav")
+	var sound = load("res://sounds/"+answer+".mp3")
 	audioStreamPlayer.stream = sound
-	audioStreamPlayer.play(0.0)
+	play_word()
+	$LineEdit.grab_focus()
 
 func _on_texture_button_pressed():
+	play_word()
+	$LineEdit.grab_focus()
+
+func play_word():
+	audioStreamPlayer.finished.connect(word_finished)
 	audioStreamPlayer.play(0.0)
+	if GlobalSettings.show_words:
+		wordLabel.visible = true
+
+func word_finished():
+	wordLabel.visible = false
+	audioStreamPlayer.finished.disconnect(word_finished)
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

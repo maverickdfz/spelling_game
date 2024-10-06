@@ -2,7 +2,7 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://dmiu78us2vdn0"
+uid="uid://bm1gro235dxu7"
 path="res://.godot/imported/fanfare.ogg-0291718640d48e8ca02ed8acf11eced6.oggvorbisstr"
 
 [deps]
@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/fanfare.ogg-0291718640d48e8ca02ed8acf11eced6.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=0
 beat_count=0

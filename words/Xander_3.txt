@@ -1,0 +1,6 @@
+car
+start
+park
+arm
+garden
+far

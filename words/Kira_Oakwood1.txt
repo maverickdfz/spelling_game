@@ -1,0 +1,10 @@
+tone
+texture
+form
+pattern
+line
+composition
+colour
+shape
+shading
+artist

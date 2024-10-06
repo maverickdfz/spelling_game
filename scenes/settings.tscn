@@ -1,0 +1,188 @@
+[gd_scene load_steps=2 format=3 uid="uid://cni73p2ffjbrm"]
+
+[ext_resource type="Script" path="res://scripts/settings.gd" id="1_owu8i"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_owu8i")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = 120.0
+offset_right = 98.0
+offset_bottom = 310.0
+grow_horizontal = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Show words"
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Show overlay"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+color = Color(0.392157, 0, 0.392157, 0.392157)
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Overlay colour
+"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Kira"
+horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Use Oakwood1 words"
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Use Year 4 words"
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "Use Year 6 words"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Xander"
+horizontal_alignment = 1
+
+[node name="GridContainer3" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use common words"
+
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use oy words"
+
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use ar words"
+
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use ir words"
+
+[node name="CheckBox5" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use weekday words"
+
+[node name="CheckBox6" type="CheckBox" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/GridContainer3"]
+layout_mode = 2
+text = "Use month words"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -90.0
+offset_right = 320.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 156.0
+offset_bottom = 76.0
+
+[node name="Label" type="Label" parent="Button2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 132.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 40
+text = "< Back"
+
+[connection signal="toggled" from="VBoxContainer/GridContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer/CheckBox2" to="." method="_on_check_box_2_toggled"]
+[connection signal="color_changed" from="VBoxContainer/GridContainer/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
+[connection signal="toggled" from="VBoxContainer/GridContainer2/CheckBox" to="." method="_on_kira1_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer2/CheckBox2" to="." method="_on_kira2_check_box_2_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer2/CheckBox3" to="." method="_on_kira3_check_box_3_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox" to="." method="_on_xander1_check_box_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox2" to="." method="_on_xander2_check_box_2_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox3" to="." method="_on_xander3_check_box_3_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox4" to="." method="_on_xander4_check_box_4_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox5" to="." method="_on_xander_weekday_check_box_5_toggled"]
+[connection signal="toggled" from="VBoxContainer/GridContainer3/CheckBox6" to="." method="_on_xander_month_check_box_6_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Spelling Game"
-run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
+run/main_scene="res://scenes/menu.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Words="*res://scripts/words.gd"
+GlobalSettings="*res://scripts/global_settings.gd"
 
 [display]
 
@@ -29,3 +30,4 @@ window/stretch/mode="viewport"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
