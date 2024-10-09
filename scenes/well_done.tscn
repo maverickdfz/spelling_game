@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cspkbwra6xbx8"]
 
-[ext_resource type="Texture2D" uid="uid://bot4dy1arho76" path="res://star.png" id="1_6ngy2"]
+[ext_resource type="Texture2D" uid="uid://cypkpm8288a3j" path="res://textures/Icon_Star.png" id="1_oh0dm"]
 
 [sub_resource type="Theme" id="Theme_rqjh5"]
 default_font_size = 128
@@ -31,7 +31,7 @@ _data = {
 position = Vector2(360, 256)
 amount = 40
 lifetime = 2.0
-texture = ExtResource("1_6ngy2")
+texture = ExtResource("1_oh0dm")
 direction = Vector2(0, 1)
 spread = 80.0
 initial_velocity_min = 400.0
